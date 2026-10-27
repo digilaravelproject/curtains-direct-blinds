@@ -3,6 +3,15 @@
 import React, { useState } from "react";
 import { Phone, Mail, ArrowRight, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { siteConfig } from "@/lib/config";
+import { CustomSelect, SelectOption } from "@/components/ui/CustomSelect";
+
+const BOTTOM_PRODUCT_OPTIONS: SelectOption[] = [
+  { value: "Curtains", label: "Curtains" },
+  { value: "Roller Blinds & Indoor Blinds", label: "Roller Blinds & Indoor Blinds" },
+  { value: "Motorised Blinds", label: "Motorised Blinds" },
+  { value: "Curtains & Blinds Package", label: "Curtains & Blinds Package" },
+  { value: "Complete Home Package", label: "Complete Home Package" },
+];
 
 export const BottomConsultationSection: React.FC = () => {
   const [name, setName] = useState("");
@@ -179,18 +188,13 @@ export const BottomConsultationSection: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
                     <div className="sm:col-span-7">
                       <label htmlFor="bottom-product" className="sr-only">I&apos;m interested in</label>
-                      <select
+                      <CustomSelect
                         id="bottom-product"
                         value={product}
-                        onChange={(e) => setProduct(e.target.value)}
-                        className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs sm:text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#EB4D98]/40 focus:border-[#EB4D98] focus:bg-white transition-all cursor-pointer"
-                      >
-                        <option value="Curtains">Curtains</option>
-                        <option value="Roller Blinds & Indoor Blinds">Roller Blinds &amp; Indoor Blinds</option>
-                        <option value="Motorised Blinds">Motorised Blinds</option>
-                        <option value="Curtains & Blinds Package">Curtains &amp; Blinds Package</option>
-                        <option value="Complete Home Package">Complete Home Package</option>
-                      </select>
+                        onChange={setProduct}
+                        options={BOTTOM_PRODUCT_OPTIONS}
+                        placeholder="I'm interested in..."
+                      />
                     </div>
 
                     <div className="sm:col-span-5">

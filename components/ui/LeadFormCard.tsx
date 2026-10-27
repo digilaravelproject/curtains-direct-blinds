@@ -2,6 +2,16 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Lock, ArrowRight, Loader2, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
+import { CustomSelect, SelectOption } from "@/components/ui/CustomSelect";
+
+const PRODUCT_OPTIONS: SelectOption[] = [
+  { value: "Curtains", label: "Curtains" },
+  { value: "Roller Blinds & Indoor Blinds", label: "Roller Blinds & Indoor Blinds" },
+  { value: "Motorised Blinds", label: "Motorised Blinds" },
+  { value: "Curtains & Blinds Package", label: "Curtains & Blinds Package" },
+  { value: "Complete Home Package", label: "Complete Home Package" },
+  { value: "Other / Consultation", label: "Other / Custom Enquiry" },
+];
 
 interface LeadFormCardProps {
   id?: string;
@@ -245,26 +255,13 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
 
           <div>
             <label htmlFor="lead-product" className="sr-only">What are you interested in?</label>
-            <div className="relative">
-              <select
-                id="lead-product"
-                value={product}
-                onChange={(e) => setProduct(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50/80 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#EB4D98]/40 focus:border-[#EB4D98] focus:bg-white shadow-2xs transition-all duration-200 appearance-none cursor-pointer"
-              >
-                <option value="Curtains">Curtains</option>
-                <option value="Roller Blinds & Indoor Blinds">Roller Blinds &amp; Indoor Blinds</option>
-                <option value="Motorised Blinds">Motorised Blinds</option>
-                <option value="Curtains & Blinds Package">Curtains &amp; Blinds Package</option>
-                <option value="Complete Home Package">Complete Home Package</option>
-                <option value="Other / Consultation">Other / Custom Enquiry</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              id="lead-product"
+              value={product}
+              onChange={setProduct}
+              options={PRODUCT_OPTIONS}
+              placeholder="What are you interested in?"
+            />
           </div>
 
           <button

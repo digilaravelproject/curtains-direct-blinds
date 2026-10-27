@@ -6,17 +6,19 @@ import { LeadFormCard } from "@/components/ui/LeadFormCard";
 export const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-pink-50/50 via-white to-white py-8 md:py-12 border-b border-gray-100">
-      {/* Background Image with soft gradient overlay for contrast */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-25 lg:opacity-35 transition-opacity duration-1000">
+      {/* Background Image: Vivid, high visual impact with clear window & curtains */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
           src="/images/hero-living.jpg"
           alt="Custom curtains and roller blinds in Melbourne living room"
           fill
           priority
           sizes="(max-width: 1500px) 100vw, 1500px"
-          className="object-cover object-center"
+          className="object-cover object-center scale-102"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40" />
+        {/* Soft directional gradient: white behind left text, open & clear over window & living space */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/20 lg:from-white/92 lg:via-white/55 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60" />
       </div>
 
       <div className="relative z-10 max-w-[1500px] mx-auto px-8">
