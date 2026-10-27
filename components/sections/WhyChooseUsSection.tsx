@@ -29,7 +29,7 @@ export const WhyChooseUsSection: React.FC = () => {
     <section id="why-choose-us" className="py-16 md:py-24 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#EB4D98] bg-pink-100/60 px-3 py-1 rounded-full border border-pink-200">
+          <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#EB4D98] bg-pink-100/70 px-3.5 py-1 rounded-full border border-pink-200 shadow-2xs">
             Why Choose Us
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3 tracking-tight">
@@ -37,18 +37,18 @@ export const WhyChooseUsSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
           {reasons.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-pink-50/30 hover:bg-pink-50/70 border border-pink-100/80 rounded-2xl p-6 sm:p-7 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md group"
+                className="card-3d bg-gradient-to-b from-white to-pink-50/20 hover:from-pink-50/40 hover:to-pink-50/80 border border-gray-200/80 hover:border-pink-300 rounded-3xl p-6 sm:p-7 text-center transition-all duration-300 group cursor-default"
               >
-                <div className="w-14 h-14 rounded-full bg-white border border-pink-200 text-[#EB4D98] flex items-center justify-center mx-auto mb-5 shadow-xs group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7" />
+                <div className="w-16 h-16 rounded-2xl bg-white border border-pink-200/80 text-[#EB4D98] flex items-center justify-center mx-auto mb-5 shadow-sm group-hover:scale-110 group-hover:shadow-md group-hover:shadow-pink-100 group-hover:border-[#EB4D98] transition-all duration-300">
+                  <Icon className="w-8 h-8 transition-transform group-hover:scale-105" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors duration-200">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 text-sm mt-2.5 leading-relaxed">

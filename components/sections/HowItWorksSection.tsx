@@ -30,10 +30,13 @@ const steps = [
 
 export const HowItWorksSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-gray-100">
+    <section className="py-16 md:py-24 bg-white border-b border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#EB4D98] bg-pink-100/70 px-3.5 py-1 rounded-full border border-pink-200 shadow-2xs">
+            Simple Process
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3 tracking-tight">
             How It Works
           </h2>
           <p className="text-gray-600 text-base sm:text-lg mt-2.5">
@@ -46,27 +49,27 @@ export const HowItWorksSection: React.FC = () => {
             const Icon = item.icon;
             return (
               <div key={idx} className="flex flex-col items-center text-center relative group">
-                {/* Number Badge and Icon */}
-                <div className="relative mb-5">
-                  <div className="w-16 h-16 rounded-full bg-pink-50 border-2 border-[#EB4D98] text-[#EB4D98] flex items-center justify-center shadow-sm group-hover:scale-105 group-hover:bg-[#EB4D98] group-hover:text-white transition-all">
-                    <Icon className="w-7 h-7" />
+                {/* 3D Elevated Number Badge & Icon */}
+                <div className="relative mb-6 transform-gpu transition-transform duration-300 group-hover:-translate-y-2">
+                  <div className="w-20 h-20 rounded-3xl bg-pink-50/90 border-2 border-[#EB4D98] text-[#EB4D98] flex items-center justify-center shadow-md shadow-pink-100/60 group-hover:scale-105 group-hover:bg-[#EB4D98] group-hover:text-white group-hover:shadow-xl group-hover:shadow-pink-300/50 transition-all duration-300">
+                    <Icon className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" />
                   </div>
-                  <div className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-[#EB4D98] text-white text-xs font-bold flex items-center justify-center shadow-xs">
+                  <div className="absolute -top-2.5 -left-2.5 w-8 h-8 rounded-full bg-[#EB4D98] text-white text-xs font-bold flex items-center justify-center shadow-md ring-2 ring-white">
                     {item.step}
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors duration-200">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+                <p className="text-gray-600 text-sm mt-2 leading-relaxed max-w-xs">
                   {item.description}
                 </p>
 
-                {/* Connecting arrow for desktop except last */}
+                {/* Connecting arrow for desktop */}
                 {idx < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 text-pink-200 pointer-events-none">
-                    <ArrowRight className="w-6 h-6 stroke-2" />
+                  <div className="hidden lg:block absolute top-9 -right-5 text-pink-300/80 pointer-events-none transform translate-x-1/2">
+                    <ArrowRight className="w-6 h-6 stroke-2 animate-pulse" />
                   </div>
                 )}
               </div>

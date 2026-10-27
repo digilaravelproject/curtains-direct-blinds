@@ -71,10 +71,10 @@ export const MelbourneServiceAreaSection: React.FC = () => {
             <div>
               <a
                 href="#quote-form"
-                className="inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-7 py-3 rounded-full font-bold text-sm sm:text-base shadow-md shadow-pink-200 transition-all active:scale-[0.98]"
+                className="btn-sheen inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-7 py-3.5 rounded-full font-bold text-sm sm:text-base shadow-lg shadow-pink-200/80 hover:shadow-xl hover:shadow-pink-300 transition-all duration-300 active:scale-[0.98] group"
               >
                 <span>Request a Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </div>
           </div>

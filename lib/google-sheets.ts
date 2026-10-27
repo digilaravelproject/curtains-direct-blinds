@@ -32,16 +32,53 @@ function sanitizeForSpreadsheet(val: string | undefined): string {
   return trimmed;
 }
 
-export async function appendLeadToSheet(lead: LeadSubmission): Promise<{ success: boolean; destination: "google_sheets" | "local_store"; message: string }> {
+export async function appendLeadToSheet(lead: LeadSubmission): Promise<{
+  success: boolean;
+  destination: "google_sheets" | "google_webhook" | "local_store";
+  message: string;
+}> {
+  // Always persist lead locally as a reliable durability layer first
+  persistLeadLocally(lead);
+
+  // Method 1: Google Apps Script Webhook (Easiest, zero-console 1-minute setup)
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  if (webhookUrl && webhookUrl.startsWith("http")) {
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          leadId: lead.id,
+          date: lead.formattedDate,
+          name: lead.name,
+          phone: lead.phone,
+          email: lead.email || "N/A",
+          product: lead.product,
+          suburb: lead.suburb,
+          message: lead.message || "N/A",
+          pageUrl: lead.pageUrl || "/",
+          status: "New Enquiry",
+        }),
+      });
+
+      if (response.ok) {
+        return {
+          success: true,
+          destination: "google_webhook",
+          message: "Lead successfully recorded to Google Sheet via Webhook.",
+        };
+      }
+    } catch (err) {
+      console.error("[Google Sheet Webhook Error]:", err);
+    }
+  }
+
+  // Method 2: Google Cloud Service Account (Enterprise Google Sheets API)
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   const sheetName = process.env.GOOGLE_SHEETS_SHEET_NAME || "Quote Leads";
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
   let privateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY;
 
-  // Always persist lead locally as a reliable durability layer
-  persistLeadLocally(lead);
-
-  // If Google Sheets credentials are configured, write directly to Google Sheets
   if (spreadsheetId && clientEmail && privateKey) {
     try {
       if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
@@ -85,23 +122,17 @@ export async function appendLeadToSheet(lead: LeadSubmission): Promise<{ success
       return {
         success: true,
         destination: "google_sheets",
-        message: "Lead successfully recorded to Google Sheet and local backup.",
+        message: "Lead successfully recorded to Google Sheet via Service Account.",
       };
     } catch (error) {
       console.error("[Google Sheets API Error]:", error);
-      // Fallback handled, lead was already safely written to local store
-      return {
-        success: true,
-        destination: "local_store",
-        message: "Lead safely saved to local backup (Google Sheets sync pending credentials verification).",
-      };
     }
   }
 
   return {
     success: true,
     destination: "local_store",
-    message: "Lead safely recorded to local backup store.",
+    message: "Lead safely saved to local backup store.",
   };
 }
 
