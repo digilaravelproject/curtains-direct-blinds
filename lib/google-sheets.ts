@@ -47,6 +47,7 @@ export async function appendLeadToSheet(lead: LeadSubmission): Promise<{
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        redirect: "follow",
         body: JSON.stringify({
           leadId: lead.id,
           date: lead.formattedDate,
