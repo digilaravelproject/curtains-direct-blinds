@@ -35,11 +35,11 @@ export const Navbar: React.FC = () => {
   return (
     <nav
       className={`sticky top-0 z-40 w-full transition-all duration-200 bg-white/95 backdrop-blur-md ${
-        isScrolled ? "shadow-sm border-b border-gray-100 py-3" : "py-4 border-b border-gray-100"
+        isScrolled ? "shadow-xs border-b border-gray-100 py-2.5" : "py-3 border-b border-gray-100"
       }`}
       aria-label="Main Navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-[1500px] mx-auto px-8 flex items-center justify-between">
         {/* Logo */}
         <Logo />
 
@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden sm:flex items-center gap-3">
           <a
             href="#quote-form"
-            className="inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm hover:shadow-md transition-all active:scale-[0.98]"
+            className="inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-5 py-2 rounded-full font-semibold text-sm shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
           >
             <span>Request a Quote</span>
             <ArrowRight className="w-4 h-4" />
@@ -81,8 +81,8 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white border-b border-gray-200 shadow-xl px-5 pt-4 pb-6 transition-all animate-in fade-in slide-in-from-top-2">
-          <div className="flex flex-col gap-3">
+        <div className="lg:hidden fixed inset-x-0 top-[60px] bg-white border-b border-gray-200 shadow-xl px-8 pt-4 pb-6 transition-all animate-in fade-in slide-in-from-top-2">
+          <div className="flex flex-col gap-2.5">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -94,11 +94,11 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
 
-            <div className="pt-4 mt-2 border-t border-gray-100 flex flex-col gap-3">
+            <div className="pt-3 mt-2 border-t border-gray-100 flex flex-col gap-2.5">
               <a
                 href="#quote-form"
                 onClick={handleLinkClick}
-                className="flex items-center justify-center gap-2 w-full bg-[#EB4D98] hover:bg-[#d83784] text-white py-3 rounded-full font-semibold text-sm shadow-sm"
+                className="flex items-center justify-center gap-2 w-full bg-[#EB4D98] hover:bg-[#d83784] text-white py-2.5 rounded-full font-semibold text-sm shadow-sm"
               >
                 <span>Request a Free Quote</span>
                 <ArrowRight className="w-4 h-4" />
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
 
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex items-center justify-center gap-2 w-full border border-gray-200 hover:border-pink-300 py-2.5 rounded-full font-semibold text-sm text-gray-700"
+                className="flex items-center justify-center gap-2 w-full border border-gray-200 hover:border-pink-300 py-2 rounded-full font-semibold text-sm text-gray-700"
               >
                 <Phone className="w-4 h-4 text-[#EB4D98]" />
                 <span>Call {siteConfig.phone}</span>

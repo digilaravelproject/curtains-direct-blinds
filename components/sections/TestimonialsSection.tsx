@@ -24,39 +24,39 @@ const testimonials = [
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-gray-50/60 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+    <section className="py-8 md:py-12 bg-gray-50/60 border-b border-gray-100">
+      <div className="max-w-[1500px] mx-auto px-8">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg mt-2.5">
+          <p className="text-gray-600 text-sm sm:text-base mt-2">
             Real reviews from Melbourne homeowners.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-gray-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group"
+              className="card-3d bg-white rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between relative group"
             >
               <div>
                 {/* 5 Yellow Stars & Quote icon */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex text-amber-400 text-lg tracking-tight" aria-label="5 stars rating">
+                <div className="flex items-center justify-between mb-3.5">
+                  <div className="flex text-amber-400 text-base tracking-tight" aria-label="5 stars rating">
                     ★★★★★
                   </div>
-                  <Quote className="w-8 h-8 text-pink-200 group-hover:text-[#EB4D98] transition-colors" />
+                  <Quote className="w-7 h-7 text-pink-200 group-hover:text-[#EB4D98] transition-colors" />
                 </div>
 
-                <p className="text-gray-700 text-base leading-relaxed italic">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed italic">
                   &ldquo;{item.text}&rdquo;
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pink-100 text-[#EB4D98] font-bold text-sm flex items-center justify-center">
+              <div className="pt-4 mt-4 border-t border-gray-100 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-pink-100 text-[#EB4D98] font-bold text-xs flex items-center justify-center">
                   {item.name[0]}
                 </div>
                 <div>

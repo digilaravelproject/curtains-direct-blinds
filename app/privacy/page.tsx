@@ -14,7 +14,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <main className="flex-1 max-w-[1500px] w-full mx-auto px-8 py-10 md:py-12">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#EB4D98] hover:text-[#d83784] mb-8"

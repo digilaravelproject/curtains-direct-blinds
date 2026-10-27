@@ -13,14 +13,14 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-gray-950 text-gray-400 py-12 border-t border-gray-900 pb-24 md:pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <footer className="bg-gray-950 text-gray-400 py-8 border-t border-gray-900 pb-20 md:pb-8">
+      <div className="max-w-[1500px] mx-auto px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
           {/* Logo on dark background */}
           <Logo variant="light" />
 
           {/* Links & Suburbs */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2 text-xs sm:text-sm">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-xs sm:text-sm">
             <span className="text-gray-300 font-medium">
               Proudly Servicing Melbourne &amp; Surrounding Suburbs
             </span>
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div className="mt-6 pt-6 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3">
           <p>
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>

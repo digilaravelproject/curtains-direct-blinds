@@ -46,12 +46,10 @@ const products: ProductItem[] = [
 
 export const ProductRangeSection: React.FC = () => {
   const handleSelectCategory = (categoryName: string) => {
-    // Dispatch custom event to preselect in form
     if (typeof window !== "undefined") {
       const event = new CustomEvent("selectProductCategory", { detail: categoryName });
       window.dispatchEvent(event);
 
-      // Smooth scroll to quote form
       const el = document.getElementById("quote-form");
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
@@ -64,60 +62,61 @@ export const ProductRangeSection: React.FC = () => {
   };
 
   return (
-    <section id="our-range" className="perspective-container py-16 md:py-24 bg-gray-50/70 border-b border-gray-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="our-range" className="perspective-container py-8 md:py-12 bg-gray-50/70 border-b border-gray-100 overflow-hidden">
+      <div className="max-w-[1500px] mx-auto px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
           <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#EB4D98] bg-pink-100/70 px-3.5 py-1 rounded-full border border-pink-200/80 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#EB4D98]" />
             <span>Our Range</span>
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mt-2 tracking-tight">
             Custom Curtains &amp; Blinds in Melbourne
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg mt-3 leading-relaxed">
+          <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
             Explore our popular window covering solutions, all made to measure for your home.
           </p>
         </div>
 
         {/* 3 Product Cards with 3D Effect & Smooth Hover */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {products.map((item) => (
-            <div
+            <article
               key={item.id}
               id={item.id}
-              className="card-3d bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-sm flex flex-col group cursor-pointer"
+              className="card-3d bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-xs flex flex-col group cursor-pointer"
               onClick={() => handleSelectCategory(item.category)}
             >
               {/* Product Image with smooth parallax zoom */}
-              <div className="relative aspect-4/3 w-full overflow-hidden bg-gray-100">
+              <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-100">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-md text-xs font-bold px-3 py-1.5 rounded-full text-gray-800 shadow-md">
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-xs font-bold px-3 py-1 rounded-full text-gray-800 shadow-sm">
                   {item.category}
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#EB4D98] transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm sm:text-base mt-2.5 leading-relaxed">
+                  <p className="text-gray-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
                     {item.description}
                   </p>
 
-                  <ul className="mt-4 space-y-2 text-xs font-medium text-gray-500">
+                  <ul className="mt-3.5 space-y-1.5 text-xs font-medium text-gray-500">
                     {item.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 group-hover:text-gray-700 transition-colors">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#EB4D98] ring-4 ring-pink-100" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#EB4D98] ring-3 ring-pink-100" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -125,21 +124,21 @@ export const ProductRangeSection: React.FC = () => {
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-6 mt-6 border-t border-gray-100">
+                <div className="pt-4 mt-4 border-t border-gray-100">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleSelectCategory(item.category);
                     }}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-pink-50/80 hover:bg-[#EB4D98] text-[#EB4D98] hover:text-white border border-pink-200/90 hover:border-transparent py-3 px-5 rounded-2xl font-bold text-sm shadow-xs hover:shadow-md transition-all duration-300 group/btn cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-pink-50/80 hover:bg-[#EB4D98] text-[#EB4D98] hover:text-white border border-pink-200/90 hover:border-transparent py-2.5 px-4 rounded-xl font-bold text-sm shadow-2xs hover:shadow-md transition-all duration-300 group/btn cursor-pointer"
                   >
                     <span>{item.buttonLabel}</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
                   </button>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
