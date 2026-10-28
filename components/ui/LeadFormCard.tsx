@@ -119,12 +119,20 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
         setErrorMsg(data.error || "Unable to submit your quote request. Please try again.");
       } else {
         setSuccessLeadId(data.leadId || "SUBMITTED");
-        // Reset form
-        setName("");
-        setPhone("");
-        setEmail("");
-        setSuburb("");
-        setMessage("");
+        // Trigger Google Tag Manager dataLayer event
+        if (typeof window !== "undefined") {
+          const w = window as unknown as { dataLayer?: Array<Record<string, unknown>> };
+          w.dataLayer = w.dataLayer || [];
+          w.dataLayer.push({
+            event: "generate_lead",
+            event_category: "Quote Form",
+            event_label: product,
+            lead_id: data.leadId,
+            suburb: suburb,
+          });
+        }
+        // Redirect to thank-you page
+        window.location.href = "/thank-you";
       }
     } catch {
       setErrorMsg("Connection issue. Please check your network or call us directly.");

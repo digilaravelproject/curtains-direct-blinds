@@ -56,11 +56,21 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Right CTA */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Right CTA with Call Button */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href={`tel:${siteConfig.phoneRaw}`}
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-pink-50 hover:bg-pink-100 text-[#EB4D98] border border-pink-200/80 px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xs"
+            aria-label={`Call ${siteConfig.phone}`}
+          >
+            <Phone className="w-3.5 h-3.5 fill-[#EB4D98]/20 text-[#EB4D98]" />
+            <span className="hidden md:inline font-semibold">{siteConfig.phone}</span>
+            <span className="md:hidden font-semibold">Call Now</span>
+          </a>
+
           <a
             href="#quote-form"
-            className="inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-5 py-2 rounded-full font-semibold text-sm shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
+            className="hidden sm:inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-4 sm:px-5 py-2 rounded-full font-semibold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
           >
             <span>Request a Quote</span>
             <ArrowRight className="w-4 h-4" />

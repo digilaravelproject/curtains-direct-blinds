@@ -51,6 +51,18 @@ export const BottomConsultationSection: React.FC = () => {
         setErrorMsg(data.error || "Submission failed. Please try again.");
       } else {
         setIsSuccess(true);
+        if (typeof window !== "undefined") {
+          const w = window as unknown as { dataLayer?: Array<Record<string, unknown>> };
+          w.dataLayer = w.dataLayer || [];
+          w.dataLayer.push({
+            event: "generate_lead",
+            event_category: "Consultation Form",
+            event_label: product,
+            lead_id: data.leadId,
+            suburb: suburb,
+          });
+        }
+        window.location.href = "/thank-you";
       }
     } catch {
       setErrorMsg("Connection error. Please try again or call us.");
