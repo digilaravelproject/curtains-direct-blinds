@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
     "Surrounding Suburbs",
   ],
   primaryColor: "#EB4D98",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://curtainsdirectblinds.com.au",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://web.curtainsdirectblinds.com.au",
   googleReviewsRating: 5.0,
   googleReviewsCount: "100+",
   yearsExperience: "30+",
