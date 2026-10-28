@@ -222,7 +222,10 @@ export default function RootLayout({
     ],
   };
 
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WFKK7VSD";
+  const gtmId =
+    process.env.GTM_ID ||
+    process.env.NEXT_PUBLIC_GTM_ID ||
+    "GTM-WFKK7VSD";
 
   return (
     <html lang="en" className={`${jost.variable} h-full antialiased`}>

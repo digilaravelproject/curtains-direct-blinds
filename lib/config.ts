@@ -16,10 +16,19 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Curtains Direct & Blinds",
   tagline: "Custom Curtains, Roller Blinds & Motorised Blinds Melbourne",
-  phone: process.env.NEXT_PUBLIC_SITE_PHONE || "(03) 9729 5414",
-  phoneRaw: process.env.NEXT_PUBLIC_SITE_PHONE_RAW || "+61397295414", // Australia international dial format (+61)
+  phone:
+    process.env.SITE_PHONE ||
+    process.env.NEXT_PUBLIC_SITE_PHONE ||
+    "(03) 9729 5414",
+  phoneRaw:
+    process.env.SITE_PHONE_RAW ||
+    process.env.NEXT_PUBLIC_SITE_PHONE_RAW ||
+    "+61397295414", // Australia international dial format (+61)
   email: "info@curtainsdirect.com.au",
-  address: process.env.NEXT_PUBLIC_SITE_ADDRESS || "447 Mountain Highway, Bayswater VIC 3153",
+  address:
+    process.env.SITE_ADDRESS ||
+    process.env.NEXT_PUBLIC_SITE_ADDRESS ||
+    "447 Mountain Highway, Bayswater VIC 3153",
   serviceAreas: [
     "Melbourne CBD",
     "Bayswater",
@@ -32,7 +41,10 @@ export const siteConfig: SiteConfig = {
     "Surrounding Suburbs",
   ],
   primaryColor: "#EB4D98",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://web.curtainsdirectblinds.com.au",
+  domain:
+    process.env.SITE_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://web.curtainsdirectblinds.com.au",
   googleReviewsRating: 5.0,
   googleReviewsCount: "100+",
   yearsExperience: "30+",
