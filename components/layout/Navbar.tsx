@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
       }`}
       aria-label="Main Navigation"
     >
-      <div className="max-w-[1500px] mx-auto px-8 flex items-center justify-between">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2.5 sm:gap-4">
         {/* Logo */}
         <Logo />
 
@@ -76,25 +76,26 @@ export const Navbar: React.FC = () => {
           </a>
         </div>
 
-        {/* Mobile Header: Exact screenshot match: [ ☰ ] [ Call Now ] */}
-        <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
+        {/* Mobile Header Actions: Clean, Balanced & Vertically Aligned */}
+        <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 flex-shrink-0">
+          <a
+            href={`tel:${siteConfig.phoneRaw}`}
+            className="inline-flex items-center gap-1.5 bg-[#EB4D98] hover:bg-[#d83784] text-white h-9 px-3 rounded-full font-bold text-xs tracking-wide shadow-xs active:scale-95 transition-all whitespace-nowrap flex-shrink-0"
+            aria-label={`Call ${siteConfig.phone}`}
+          >
+            <Phone className="w-3.5 h-3.5 fill-white" />
+            <span>Call Now</span>
+          </a>
+
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 sm:p-2.5 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg text-gray-800 transition-colors cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center bg-gray-100 hover:bg-gray-200/80 border border-gray-200/60 rounded-full text-gray-800 transition-colors cursor-pointer active:scale-95 flex-shrink-0"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5 text-gray-800" /> : <Menu className="w-5 h-5 text-gray-800" />}
+            {mobileMenuOpen ? <X className="w-4.5 h-4.5 text-gray-800" /> : <Menu className="w-4.5 h-4.5 text-gray-800" />}
           </button>
-
-          <a
-            href={`tel:${siteConfig.phoneRaw}`}
-            className="inline-flex items-center justify-center bg-[#EB4D98] hover:bg-[#d83784] text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-bold text-xs sm:text-sm tracking-wide shadow-sm active:scale-95 transition-all"
-            aria-label={`Call ${siteConfig.phone}`}
-          >
-            Call Now
-          </a>
         </div>
       </div>
 
