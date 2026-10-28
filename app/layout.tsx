@@ -18,27 +18,52 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
+  title: {
+    default: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
+    template: `%s | ${siteConfig.name}`,
+  },
   description:
-    "Custom curtains, roller blinds & motorised blinds in Melbourne. Free in-home consultation, expert advice & measuring, and professional installation. Request your free quote today!",
+    "Premium custom made-to-measure curtains, roller blinds, plantation shutters & motorised blinds across Melbourne. 30+ years experience, 5.0★ rating. Free in-home measure & quote!",
   keywords: [
     "curtains Melbourne",
     "blinds Melbourne",
-    "custom curtains",
+    "custom curtains Melbourne",
     "roller blinds Melbourne",
-    "motorised blinds",
-    "curtains direct blinds",
+    "motorised blinds Melbourne",
+    "sheer curtains Melbourne",
+    "blockout curtains Melbourne",
+    "S-fold curtains Melbourne",
+    "plantation shutters Melbourne",
+    "custom blinds Melbourne",
+    "curtains Berwick",
+    "blinds Berwick",
+    "Curtains Direct and Blinds",
+    "Berwick Curtain Nook",
     "window coverings Melbourne",
-    "in-home consultation blinds",
+    "in home curtain consultation Melbourne",
+    "made to measure curtains Victoria",
+    "commercial window furnishings Melbourne",
   ],
   metadataBase: new URL(siteConfig.domain),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-AU": "/",
+    },
+  },
+  authors: [{ name: siteConfig.name, url: siteConfig.domain }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  applicationName: siteConfig.name,
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
   openGraph: {
     title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
     description:
-      "Transform your home with custom curtains, roller blinds and motorised blinds. Free in-home consultation & professional installation across Melbourne.",
+      "Transform your home with custom curtains, roller blinds & motorised blinds. 30+ years experience, 5.0★ reviews. Free in-home consultation across Melbourne.",
     url: siteConfig.domain,
     siteName: siteConfig.name,
     locale: "en_AU",
@@ -50,18 +75,46 @@ export const metadata: Metadata = {
         height: 630,
         alt: "Curtains Direct & Blinds Melbourne Living Room Installation",
       },
+      {
+        url: "/images/logo.svg",
+        width: 500,
+        height: 500,
+        alt: "Curtains Direct & Blinds Brand Logo",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
     description:
-      "Custom curtains, roller blinds & motorised blinds in Melbourne. Free in-home consultation & measuring.",
+      "Custom curtains, roller blinds & motorised blinds in Melbourne. 30+ years experience, 5.0★ rating. Free in-home consultation & measuring.",
     images: ["/images/hero-living.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/images/logo.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/images/logo.svg" },
+    ],
+  },
+  other: {
+    "geo.region": "AU-VIC",
+    "geo.placename": "Melbourne",
+    "geo.position": "-37.8136;144.9631",
+    "ICBM": "-37.8136, 144.9631",
   },
 };
 
@@ -72,30 +125,98 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": siteConfig.name,
-    "description":
-      "Custom curtains, roller blinds and motorised blinds made to measure and professionally installed across Melbourne.",
-    "url": siteConfig.domain,
-    "telephone": siteConfig.phoneRaw,
-    "email": siteConfig.email,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Melbourne",
-      "addressRegion": "VIC",
-      "addressCountry": "AU",
-    },
-    "areaServed": siteConfig.serviceAreas.map((area) => ({
-      "@type": "Place",
-      "name": area,
-    })),
-    "priceRange": "$$",
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "08:30",
-        "closes": "18:00",
+        "@type": ["HomeAndConstructionBusiness", "Store", "LocalBusiness"],
+        "@id": `${siteConfig.domain}/#localbusiness`,
+        "name": siteConfig.name,
+        "alternateName": "Berwick Curtain Nook",
+        "description":
+          "Melbourne's trusted specialists in custom made-to-measure curtains, roller blinds, plantation shutters, and motorised blinds. Over 30 years of local manufacturing and installation excellence.",
+        "url": siteConfig.domain,
+        "telephone": siteConfig.phoneRaw,
+        "email": siteConfig.email,
+        "priceRange": "$$",
+        "image": `${siteConfig.domain}/images/hero-living.jpg`,
+        "logo": `${siteConfig.domain}/images/logo.svg`,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Melbourne",
+          "addressRegion": "VIC",
+          "postalCode": "3000",
+          "addressCountry": "AU",
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -37.8136,
+          "longitude": 144.9631,
+        },
+        "areaServed": siteConfig.serviceAreas.map((area) => ({
+          "@type": "City",
+          "name": area,
+        })),
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "100",
+          "bestRating": "5",
+          "worstRating": "1",
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:30",
+            "closes": "18:00",
+          },
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Custom Window Furnishings Melbourne",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Curtains (Sheer, S-Fold, Blockout & Wave Fold)",
+                "description": "Custom made-to-measure curtains with premium fabrics, thermal insulation, and custom curtain tracks.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Roller Blinds (Sunscreen, Blockout & Dual)",
+                "description": "High performance roller blinds for modern Melbourne homes and offices with sleek finishes.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Motorised Curtains & Blinds",
+                "description": "Somfy & smart motorisation with app control, voice integration (Alexa/Google), and timer automation.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Plantation Shutters & Venetian Blinds",
+                "description": "Custom crafted PVC & timber plantation shutters and timber-look venetian blinds.",
+              },
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.domain}/#website`,
+        "url": siteConfig.domain,
+        "name": siteConfig.name,
+        "publisher": {
+          "@id": `${siteConfig.domain}/#localbusiness`,
+        },
       },
     ],
   };

@@ -32,7 +32,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", variant = "dark" }) 
           className={`text-lg sm:text-xl font-bold tracking-tight transition-colors ${
             variant === "light"
               ? "text-white"
-              : "text-[#EB008B] group-hover:text-[#d1007a]"
+              : "text-[#EB4D98] group-hover:text-[#d83784]"
           }`}
         >
           Curtains Direct{" "}
