@@ -59,7 +59,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   };
 
   return (
-    <div ref={containerRef} className={`relative w-full ${className}`}>
+    <div ref={containerRef} className={`relative w-full ${isOpen ? "z-40" : "z-10"} ${className}`}>
       {/* Trigger Button */}
       <button
         id={id}
@@ -87,7 +87,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
       {isOpen && (
         <div
           role="listbox"
-          className="absolute z-50 left-0 right-0 mt-1.5 bg-white border border-pink-100 rounded-2xl shadow-xl shadow-pink-100/50 p-1.5 space-y-0.5 max-h-64 overflow-y-auto animate-in fade-in slide-in-from-top-1 duration-150"
+          className="absolute z-[100] left-0 right-0 mt-1.5 bg-white border border-pink-200 rounded-2xl shadow-2xl shadow-pink-950/15 p-1.5 space-y-0.5 max-h-56 overflow-y-auto animate-in fade-in slide-in-from-top-1 duration-150"
         >
           {options.map((opt) => {
             const isSelected = opt.value === value;

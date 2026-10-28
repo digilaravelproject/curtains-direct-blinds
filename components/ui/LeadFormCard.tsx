@@ -36,14 +36,12 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successLeadId, setSuccessLeadId] = useState<string | null>(null);
 
-  // 3D Tilt interaction
+  // 3D Tilt interaction (desktop only)
   const cardRef = useRef<HTMLDivElement>(null);
-  const [tiltStyle, setTiltStyle] = useState({
-    transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-    transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-  });
+  const [tiltStyle, setTiltStyle] = useState<React.CSSProperties>({});
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -61,10 +59,7 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
   };
 
   const handleMouseLeave = () => {
-    setTiltStyle({
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)",
-      transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-    });
+    setTiltStyle({});
   };
 
   // Listen for custom event if external button selects category
@@ -157,8 +152,8 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
       onMouseLeave={handleMouseLeave}
       style={tiltStyle}
       id={id}
-      className={`relative bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl shadow-pink-200/50 border border-pink-100/90 p-6 sm:p-8 transform-gpu preserve-3d ${
-        compact ? "max-w-xl mx-auto" : "w-full max-w-md"
+      className={`relative bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl shadow-pink-200/50 border border-pink-100/90 p-5 sm:p-8 transform-gpu ${
+        compact ? "max-w-xl mx-auto" : "w-full max-w-md mx-auto"
       }`}
     >
       {/* 3D ambient glow edge */}

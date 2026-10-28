@@ -5,7 +5,7 @@ import { LeadFormCard } from "@/components/ui/LeadFormCard";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-pink-50/50 via-white to-white py-8 md:py-12 border-b border-gray-100">
+    <section className="relative overflow-visible z-20 bg-gradient-to-b from-pink-50/50 via-white to-white py-8 md:py-12 border-b border-gray-100">
       {/* Background Image: Vivid, high visual impact with clear window & curtains */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
@@ -21,7 +21,7 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60" />
       </div>
 
-      <div className="relative z-10 max-w-[1500px] mx-auto px-8">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Heading, Subtitle & Badges */}
           <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
@@ -77,7 +77,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Column: 3D interactive Lead Form Card above the fold */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
             <LeadFormCard />
           </div>
         </div>
