@@ -8,10 +8,15 @@ export interface SiteConfig {
   serviceAreas: string[];
   primaryColor: string;
   domain: string;
+  basePath: string;
   googleReviewsRating: number;
   googleReviewsCount: string;
   yearsExperience: string;
 }
+
+const isCpanel =
+  process.env.BUILD_TARGET === "cpanel" ||
+  process.env.NEXT_PUBLIC_BUILD_TARGET === "cpanel";
 
 export const siteConfig: SiteConfig = {
   name: "Curtains Direct & Blinds",
@@ -44,8 +49,14 @@ export const siteConfig: SiteConfig = {
   domain:
     process.env.SITE_URL ||
     process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://web.curtainsdirectblinds.com.au",
+    (isCpanel ? "https://www.curtainsdirect.com.au/web" : "https://web.curtainsdirectblinds.com.au"),
+  basePath: isCpanel ? "/web" : "",
   googleReviewsRating: 5.0,
   googleReviewsCount: "100+",
   yearsExperience: "30+",
+};
+
+export const assetUrl = (path: string): string => {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return siteConfig.basePath ? `${siteConfig.basePath}${cleanPath}` : cleanPath;
 };

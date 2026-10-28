@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Zip archives and export packages
+*.zip
+/curtains-direct-web.zip
+
 # local leads data
 data/leads.json
 /.agent

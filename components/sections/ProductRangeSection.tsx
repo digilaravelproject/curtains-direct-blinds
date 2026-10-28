@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { assetUrl } from "@/lib/config";
 
 interface ProductItem {
   id: string;
@@ -20,7 +21,7 @@ const products: ProductItem[] = [
     category: "Curtains",
     title: "Custom Curtains",
     description: "A wide range of fabrics, styles and finishes to suit your home and lifestyle. From sheer wave folds to full blockout drapes.",
-    image: "/images/curtains-bedroom.jpg",
+    image: assetUrl("/images/curtains-bedroom.jpg"),
     buttonLabel: "Explore Curtains",
     features: ["Sheer S-Fold & Wave Fold", "Full Blockout Linings", "Custom Heading Styles"],
   },
@@ -29,7 +30,7 @@ const products: ProductItem[] = [
     category: "Roller Blinds & Indoor Blinds",
     title: "Roller Blinds & Indoor Blinds",
     description: "Stylish and practical blinds for every room, with options to suit your space, light control and thermal privacy needs.",
-    image: "/images/roller-blinds-dining.jpg",
+    image: assetUrl("/images/roller-blinds-dining.jpg"),
     buttonLabel: "Explore Blinds",
     features: ["Blockout & Sunscreen", "Double Roller Systems", "Durable Easy-Clean Fabrics"],
   },
@@ -38,7 +39,7 @@ const products: ProductItem[] = [
     category: "Motorised Blinds",
     title: "Motorised Blinds",
     description: "Convenient smart control, modern wireless motors and a seamless cordless finish engineered for comfort and modern living.",
-    image: "/images/motorised-blinds.jpg",
+    image: assetUrl("/images/motorised-blinds.jpg"),
     buttonLabel: "Explore Motorised Blinds",
     features: ["Remote & App Automation", "Rechargeable Wire-Free", "Child & Pet Safe"],
   },

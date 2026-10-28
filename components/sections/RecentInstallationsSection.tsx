@@ -1,25 +1,26 @@
 import React from "react";
 import Image from "next/image";
+import { assetUrl } from "@/lib/config";
 
 const installations = [
   {
     title: "Living Room Curtains",
-    image: "/images/hero-living.jpg",
+    image: assetUrl("/images/hero-living.jpg"),
     suburb: "Bayswater, VIC",
   },
   {
     title: "Roller Blinds in Dining",
-    image: "/images/roller-blinds-dining.jpg",
+    image: assetUrl("/images/roller-blinds-dining.jpg"),
     suburb: "Doncaster, VIC",
   },
   {
     title: "Motorised Blinds",
-    image: "/images/motorised-blinds.jpg",
+    image: assetUrl("/images/motorised-blinds.jpg"),
     suburb: "Ringwood, VIC",
   },
   {
     title: "Bedroom Curtains",
-    image: "/images/curtains-bedroom.jpg",
+    image: assetUrl("/images/curtains-bedroom.jpg"),
     suburb: "Camberwell, VIC",
   },
 ];

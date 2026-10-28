@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { LeadFormCard } from "@/components/ui/LeadFormCard";
+import { assetUrl } from "@/lib/config";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ export const HeroSection: React.FC = () => {
       {/* Background Image: Vivid, high visual impact with clear window & curtains */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
-          src="/images/hero-living.jpg"
+          src={assetUrl("/images/hero-living.jpg")}
           alt="Custom curtains and roller blinds in Melbourne living room"
           fill
           priority

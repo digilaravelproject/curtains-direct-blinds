@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
+import PageLoader from "@/components/PageLoader";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -70,13 +71,13 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-living.jpg",
+        url: `${siteConfig.basePath}/images/hero-living.jpg`,
         width: 1200,
         height: 630,
         alt: "Curtains Direct & Blinds Melbourne Living Room Installation",
       },
       {
-        url: "/images/logo.svg",
+        url: `${siteConfig.basePath}/images/logo.svg`,
         width: 500,
         height: 500,
         alt: "Curtains Direct & Blinds Brand Logo",
@@ -88,7 +89,7 @@ export const metadata: Metadata = {
     title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
     description:
       "Custom curtains, roller blinds & motorised blinds in Melbourne. 30+ years experience, 5.0★ rating. Free in-home consultation & measuring.",
-    images: ["/images/hero-living.jpg"],
+    images: [`${siteConfig.basePath}/images/hero-living.jpg`],
   },
   robots: {
     index: true,
@@ -103,12 +104,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: `${siteConfig.basePath}/favicon.svg`, type: "image/svg+xml" },
+      { url: `${siteConfig.basePath}/images/logo.svg`, type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/images/logo.svg" },
+      { url: `${siteConfig.basePath}/images/logo.svg` },
     ],
+    shortcut: `${siteConfig.basePath}/favicon.svg`,
   },
   other: {
     "geo.region": "AU-VIC",
@@ -230,24 +232,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jost.variable} h-full antialiased`}>
       <head>
+        {/* Dynamic cPanel Configuration File (Allows editing GTM, phone, and URLs without rebuilding) */}
+        <script src={`${siteConfig.basePath}/config.js`}></script>
+
         {/* Google Tag Manager initialization */}
-        {gtmId ? (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${gtmId}');`,
-            }}
-          />
-        ) : (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];`,
-            }}
-          />
-        )}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){
+              var id = (w.__SITE_CONFIG__ && w.__SITE_CONFIG__.GTM_ID) || '${gtmId}';
+              w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+id+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer');`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -264,6 +263,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             />
           </noscript>
         )}
+        <PageLoader />
         {children}
       </body>
     </html>

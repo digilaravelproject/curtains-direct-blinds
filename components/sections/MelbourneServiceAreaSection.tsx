@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { MapPin, Check, ArrowRight } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { siteConfig, assetUrl } from "@/lib/config";
 
 const suburbsList = [
   "Melbourne",
@@ -22,7 +22,7 @@ export const MelbourneServiceAreaSection: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="relative aspect-16/10 rounded-2xl overflow-hidden shadow-md border border-gray-200">
               <Image
-                src="/images/melbourne-skyline.jpg"
+                src={assetUrl("/images/melbourne-skyline.jpg")}
                 alt="Curtains and blinds across Melbourne and surrounding suburbs"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

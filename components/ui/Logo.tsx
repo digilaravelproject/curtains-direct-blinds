@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import Image from "next/image";
+import { assetUrl } from "@/lib/config";
 
 interface LogoProps {
   className?: string;
@@ -18,7 +19,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", variant = "dark" }) 
       {/* Official 4-Quadrant Brand Logo */}
       <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg overflow-hidden border border-gray-200/80 shadow-xs flex-shrink-0 group-hover:scale-105 transition-transform bg-white">
         <Image
-          src="/images/logo.svg"
+          src={assetUrl("/images/logo.svg")}
           alt="Curtains Direct & Blinds Logo"
           fill
           sizes="40px"

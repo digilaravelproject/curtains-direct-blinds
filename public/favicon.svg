@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <style>
+      .brand-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: -0.5px;
+      }
+      .slat-face { fill: #FFFFFF; }
+      .slat-edge { fill: #D3D6C8; }
+    </style>
+    <pattern id="polka-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="3.2" fill="#FFFFFF" opacity="0.9" />
+      <circle cx="18" cy="18" r="3.2" fill="#FFFFFF" opacity="0.9" />
+    </pattern>
+  </defs>
+
+  <!-- Background white -->
+  <rect width="500" height="500" fill="#FFFFFF" />
+
+  <!-- QUADRANT 1: TOP-LEFT pink -->
+  <rect x="0" y="0" width="247" height="247" fill="#EB4D98" />
+  <g transform="translate(24, 45)">
+    <text class="brand-text" font-size="44" x="0" y="44">Curtains</text>
+    <text class="brand-text" font-size="44" x="0" y="104">Direct</text>
+    <text class="brand-text" font-size="44" x="0" y="164">&amp; Blinds</text>
+  </g>
+
+  <!-- QUADRANT 2: TOP-RIGHT venetian -->
+  <g transform="translate(253, 0)">
+    <rect x="0" y="0" width="247" height="247" fill="#FFFFFF" />
+    <rect x="0" y="0" width="247" height="42" fill="#B6BA9F" />
+    <polygon points="12,50 215,50 205,68 12,68" class="slat-edge" />
+    <polygon points="12,50 215,50 218,55 12,55" class="slat-face" />
+    <polygon points="12,80 220,80 208,98 12,98" class="slat-edge" />
+    <polygon points="12,80 220,80 223,85 12,85" class="slat-face" />
+    <polygon points="12,110 225,110 210,128 12,128" class="slat-edge" />
+    <polygon points="12,110 225,110 227,115 12,115" class="slat-face" />
+    <polygon points="12,140 222,140 206,158 12,158" class="slat-edge" />
+    <polygon points="12,140 222,140 224,145 12,145" class="slat-face" />
+    <polygon points="12,170 215,170 198,188 12,188" class="slat-edge" />
+    <polygon points="12,170 215,170 217,175 12,175" class="slat-face" />
+    <polygon points="12,200 205,200 188,218 12,218" class="slat-edge" />
+    <polygon points="12,200 205,200 207,205 12,205" class="slat-face" />
+    <line x1="124" y1="42" x2="124" y2="247" stroke="#686C5A" stroke-width="2.5" />
+    <polygon points="158,42 247,42 247,125 235,125" fill="#4B4E3E" />
+    <polygon points="235,100 247,100 247,247 192,247" fill="#4B4E3E" />
+    <polygon points="208,247 247,150 247,247" fill="#3D4032" opacity="0.4" />
+  </g>
+
+  <!-- QUADRANT 3: BOTTOM-LEFT fabric -->
+  <g transform="translate(0, 253)">
+    <rect x="0" y="0" width="247" height="92" fill="#B6BA9F" />
+    <line x1="0" y1="92" x2="247" y2="92" stroke="#FFFFFF" stroke-width="3" />
+    <rect x="0" y="94" width="247" height="153" fill="#B6BA9F" />
+    <rect x="0" y="94" width="247" height="153" fill="url(#polka-dots)" />
+  </g>
+
+  <!-- QUADRANT 4: BOTTOM-RIGHT pink -->
+  <rect x="253" y="253" width="247" height="247" fill="#EB4D98" />
+  <g transform="translate(277, 298)">
+    <text class="brand-text" font-size="44" x="0" y="44">Berwick</text>
+    <text class="brand-text" font-size="44" x="0" y="104">Curtain</text>
+    <text class="brand-text" font-size="44" x="0" y="164">Nook</text>
+  </g>
+
+  <!-- Grid lines -->
+  <line x1="250" y1="0" x2="250" y2="500" stroke="#FFFFFF" stroke-width="6" />
+  <line x1="0" y1="250" x2="500" y2="250" stroke="#FFFFFF" stroke-width="6" />
+</svg>
+

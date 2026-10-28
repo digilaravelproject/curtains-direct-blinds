@@ -11,7 +11,7 @@ export const ThankYouTracker: React.FC = () => {
         event: "conversion_thank_you",
         event_category: "Lead Generation",
         event_action: "Form Submission",
-        page_path: "/thank-you",
+        page_path: "/web/thank-you",
         timestamp: new Date().toISOString(),
       });
     }

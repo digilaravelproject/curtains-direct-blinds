@@ -1,0 +1,53 @@
+# ========================================================
+# Curtains Direct & Blinds - Production cPanel .htaccess
+# Place this file in: public_html/web/.htaccess
+# ========================================================
+
+# Set default index file
+DirectoryIndex index.html index.php
+
+# Prevent directory browsing
+Options -Indexes +FollowSymLinks
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /web/
+
+  # 1. Stop if already redirected internally (prevents 520 / 500 loops)
+  RewriteCond %{ENV:REDIRECT_STATUS} 200
+  RewriteRule ^ - [L]
+
+  # 2. Directly serve real existing files and folders (CSS, JS, images, _next)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 3. Dedicated clean routes
+  RewriteRule ^thank-you/?$ /web/thank-you/index.html [L]
+  RewriteRule ^privacy/?$ /web/privacy/index.html [L]
+  RewriteRule ^terms/?$ /web/terms/index.html [L]
+
+  # 4. Don't rewrite index.html again
+  RewriteRule ^index\.html$ - [L]
+
+  # 5. SPA Fallback
+  RewriteRule ^.*$ /web/index.html [L]
+</IfModule>
+
+# Correct MIME Types for static assets
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

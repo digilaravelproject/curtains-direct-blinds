@@ -39,7 +39,10 @@ export const BottomConsultationSection: React.FC = () => {
 
     setIsLoading(true);
     try {
-      const res = await fetch("/api/quote", {
+      const endpoint = siteConfig.basePath
+        ? `${siteConfig.basePath}/api/quote.php`
+        : "/api/quote";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -67,7 +70,9 @@ export const BottomConsultationSection: React.FC = () => {
             suburb: suburb,
           });
         }
-        window.location.href = "/thank-you";
+        window.location.href = siteConfig.basePath
+          ? `${siteConfig.basePath}/thank-you/`
+          : "/thank-you";
       }
     } catch {
       setErrorMsg("Connection error. Please try again or call us.");

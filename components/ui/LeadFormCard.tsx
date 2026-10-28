@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Lock, ArrowRight, Loader2, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
 import { CustomSelect, SelectOption } from "@/components/ui/CustomSelect";
+import { siteConfig } from "@/lib/config";
 
 const PRODUCT_OPTIONS: SelectOption[] = [
   { value: "Curtains", label: "Curtains" },
@@ -102,7 +103,10 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/quote", {
+      const endpoint = siteConfig.basePath
+        ? `${siteConfig.basePath}/api/quote.php`
+        : "/api/quote";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -136,7 +140,9 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
           });
         }
         // Redirect to thank-you page
-        window.location.href = "/thank-you";
+        window.location.href = siteConfig.basePath
+          ? `${siteConfig.basePath}/thank-you/`
+          : "/thank-you";
       }
     } catch {
       setErrorMsg("Connection issue. Please check your network or call us directly.");
