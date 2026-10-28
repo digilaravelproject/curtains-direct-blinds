@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -62,6 +64,7 @@ export const HeroSection: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 href="#quote-form"
+                onClick={(e) => { e.preventDefault(); const el = document.getElementById('quote-form'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({top, behavior:'smooth'}); } }}
                 className="btn-sheen inline-flex items-center gap-2 bg-[#EB4D98] hover:bg-[#d83784] text-white px-6 py-3 rounded-full font-bold text-sm sm:text-base shadow-md shadow-pink-200/80 hover:shadow-lg transition-all duration-300 active:scale-[0.98] group"
               >
                 <span>Request a Quote</span>
@@ -69,6 +72,7 @@ export const HeroSection: React.FC = () => {
               </a>
               <a
                 href="#our-range"
+                onClick={(e) => { e.preventDefault(); const el = document.getElementById('our-range'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({top, behavior:'smooth'}); } }}
                 className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-gray-200 text-gray-800 px-5 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:border-pink-300 hover:text-[#EB4D98] hover:shadow-xs"
               >
                 <span>Explore Our Range</span>

@@ -31,6 +31,7 @@ export const MobileFloatingBar: React.FC = () => {
 
         <a
           href="#quote-form"
+          onClick={(e) => { e.preventDefault(); const el = document.getElementById('quote-form'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({top, behavior:'smooth'}); } }}
           className="flex-1 flex items-center justify-center gap-1.5 bg-[#EB4D98] hover:bg-[#d83784] text-white py-3 rounded-full font-bold text-xs shadow-md shadow-pink-200 transition-colors"
         >
           <span>Free Quote</span>
