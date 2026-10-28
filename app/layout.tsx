@@ -141,9 +141,10 @@ export default function RootLayout({
         "logo": `${siteConfig.domain}/images/logo.svg`,
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Melbourne",
+          "streetAddress": "447 Mountain Highway",
+          "addressLocality": "Bayswater",
           "addressRegion": "VIC",
-          "postalCode": "3000",
+          "postalCode": "3153",
           "addressCountry": "AU",
         },
         "geo": {

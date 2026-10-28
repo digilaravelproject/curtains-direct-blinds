@@ -72,16 +72,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Please enter a valid contact phone number." }, { status: 400 });
     }
 
-    if (!suburb || typeof suburb !== "string" || suburb.trim().length < 2) {
-      return NextResponse.json({ error: "Please provide your suburb or area." }, { status: 400 });
+    // Email is mandatory
+    if (!email || typeof email !== "string" || email.trim().length === 0) {
+      return NextResponse.json({ error: "Email address is mandatory." }, { status: 400 });
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
 
-    // Email format check if provided
-    if (email && typeof email === "string" && email.trim().length > 0) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.trim())) {
-        return NextResponse.json({ error: "Please enter a valid email address or leave it blank." }, { status: 400 });
-      }
+    if (!suburb || typeof suburb !== "string" || suburb.trim().length < 2) {
+      return NextResponse.json({ error: "Please provide your suburb or area." }, { status: 400 });
     }
 
     // Validate product against allowlist or default
@@ -97,13 +98,19 @@ export async function POST(req: NextRequest) {
     const randomHex = Math.random().toString(36).substring(2, 7).toUpperCase();
     const leadId = `CDB-${dateStr}-${randomHex}`;
 
-    // Timestamp formatting
+    // Timestamp formatting in Indian Time Zone (Asia/Kolkata - IST)
     const submissionDate = new Date();
-    const formattedDate = submissionDate.toLocaleString("en-AU", {
-      timeZone: "Australia/Melbourne",
-      dateStyle: "medium",
-      timeStyle: "medium",
-    });
+    const formattedDate =
+      submissionDate.toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      }) + " IST";
 
     const lead: LeadSubmission = {
       id: leadId,

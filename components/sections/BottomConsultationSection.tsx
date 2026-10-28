@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, ArrowRight, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { CustomSelect, SelectOption } from "@/components/ui/CustomSelect";
 
@@ -27,8 +27,13 @@ export const BottomConsultationSection: React.FC = () => {
     e.preventDefault();
     setErrorMsg(null);
 
-    if (!name.trim() || !phone.trim() || !suburb.trim()) {
-      setErrorMsg("Please complete Name, Phone, and Suburb.");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name.trim() || !phone.trim() || !email.trim() || !suburb.trim()) {
+      setErrorMsg("Please complete Name, Phone, Email, and Suburb.");
+      return;
+    }
+    if (!emailRegex.test(email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
       return;
     }
 
@@ -115,6 +120,18 @@ export const BottomConsultationSection: React.FC = () => {
                     </div>
                   </div>
                 </a>
+
+                <div className="flex items-start gap-3 text-gray-800">
+                  <div className="w-9 h-9 rounded-full bg-pink-100 text-[#EB4D98] flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-gray-500 font-medium">Showroom &amp; Office</div>
+                    <div className="text-xs sm:text-sm font-semibold text-gray-900">
+                      {siteConfig.address}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -173,11 +190,12 @@ export const BottomConsultationSection: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label htmlFor="bottom-email" className="sr-only">Email</label>
+                      <label htmlFor="bottom-email" className="sr-only">Email Address *</label>
                       <input
                         id="bottom-email"
                         type="email"
-                        placeholder="Email (optional)"
+                        required
+                        placeholder="Email Address *"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs sm:text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#EB4D98]/40 focus:border-[#EB4D98] focus:bg-white transition-all"

@@ -90,6 +90,15 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
       setErrorMsg("Please enter your contact phone number.");
       return;
     }
+    if (!email.trim()) {
+      setErrorMsg("Please enter your email address.");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
     if (!suburb.trim()) {
       setErrorMsg("Please enter your suburb.");
       return;
@@ -237,11 +246,12 @@ export const LeadFormCard: React.FC<LeadFormCardProps> = ({
           </div>
 
           <div>
-            <label htmlFor="lead-email" className="sr-only">Email (optional)</label>
+            <label htmlFor="lead-email" className="sr-only">Email Address *</label>
             <input
               id="lead-email"
               type="email"
-              placeholder="Email (optional)"
+              required
+              placeholder="Email Address *"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 bg-gray-50/80 border border-gray-200 rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#EB4D98]/40 focus:border-[#EB4D98] focus:bg-white shadow-2xs transition-all duration-200"

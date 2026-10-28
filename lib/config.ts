@@ -19,7 +19,7 @@ export const siteConfig: SiteConfig = {
   phone: "(03) 9876 1234",
   phoneRaw: "+61398761234", // E.164 format for tel: link
   email: "info@curtainsdirect.com.au",
-  address: "Melbourne, Victoria, Australia",
+  address: "447 Mountain Highway, Bayswater VIC 3153",
   serviceAreas: [
     "Melbourne CBD",
     "Bayswater",

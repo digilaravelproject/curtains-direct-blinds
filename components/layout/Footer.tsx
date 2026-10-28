@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
           {/* Links & Suburbs */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-xs sm:text-sm">
             <span className="text-gray-300 font-medium">
-              Proudly Servicing Melbourne &amp; Surrounding Suburbs
+              447 Mountain Highway, Bayswater VIC 3153 &bull; Servicing Melbourne &amp; Surrounds
             </span>
             <span className="text-gray-700 hidden sm:inline">|</span>
             <Link href="/privacy" className="hover:text-[#EB4D98] transition-colors">
