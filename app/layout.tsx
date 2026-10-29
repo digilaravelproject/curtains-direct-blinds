@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.basePath}/images/hero-living.jpg`,
+        url: `${siteConfig.basePath}/images/hero-curtains-view.jpg`,
         width: 1200,
         height: 630,
         alt: "Curtains Direct & Blinds Melbourne Living Room Installation",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
     description:
       "Custom curtains, roller blinds & motorised blinds in Melbourne. 30+ years experience, 5.0★ rating. Free in-home consultation & measuring.",
-    images: [`${siteConfig.basePath}/images/hero-living.jpg`],
+    images: [`${siteConfig.basePath}/images/hero-curtains-view.jpg`],
   },
   robots: {
     index: true,
@@ -139,7 +139,7 @@ export default function RootLayout({
         "telephone": siteConfig.phoneRaw,
         "email": siteConfig.email,
         "priceRange": "$$",
-        "image": `${siteConfig.domain}/images/hero-living.jpg`,
+        "image": `${siteConfig.domain}/images/hero-curtains-view.jpg`,
         "logo": `${siteConfig.domain}/images/logo.svg`,
         "address": {
           "@type": "PostalAddress",
