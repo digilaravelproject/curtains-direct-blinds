@@ -38,20 +38,20 @@ export default function HomePage() {
       {/* 7. Recent Installations: Real Homes. Real Results. */}
       <RecentInstallationsSection />
 
-      {/* 8. Melbourne & Surrounding Suburbs Service Area */}
-      <MelbourneServiceAreaSection />
-
-      {/* 9. Testimonials: What Our Customers Say */}
+      {/* 8. Testimonials: What Our Customers Say */}
       <TestimonialsSection />
 
-      {/* 10. How It Works: Simple 4-Step Process */}
+      {/* 9. How It Works: Simple 4-Step Process */}
       <HowItWorksSection />
 
-      {/* 11. Frequently Asked Questions & Callout Card */}
+      {/* 10. Frequently Asked Questions & Callout Card */}
       <FaqSection />
 
-      {/* 12. Bottom Consultation Banner with Quick Form */}
+      {/* 11. Bottom Consultation Banner with Quick Form */}
       <BottomConsultationSection />
+
+      {/* 12. Melbourne & Surrounding Suburbs Service Area & Showroom Map */}
+      <MelbourneServiceAreaSection />
 
       {/* 13. Site Footer */}
       <Footer />
