@@ -5,7 +5,7 @@ import { assetUrl } from "@/lib/config";
 const installations = [
   {
     title: "Living Room Curtains",
-    image: assetUrl("/images/hero-living.jpg"),
+    image: `${assetUrl("/images/hero-curtains-view.jpg")}?v=20261029`,
     suburb: "Bayswater, VIC",
   },
   {

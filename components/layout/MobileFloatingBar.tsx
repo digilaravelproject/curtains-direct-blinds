@@ -9,8 +9,8 @@ export const MobileFloatingBar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show only after scrolling past top hero (e.g. 300px)
-      setIsVisible(window.scrollY > 300);
+      // Show only after scrolling past top hero (450px)
+      setIsVisible(window.scrollY > 450);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
