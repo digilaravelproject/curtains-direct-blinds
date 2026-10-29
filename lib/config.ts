@@ -9,6 +9,7 @@ export interface SiteConfig {
   primaryColor: string;
   domain: string;
   basePath: string;
+  version: string;
   googleReviewsRating: number;
   googleReviewsCount: string;
   yearsExperience: string;
@@ -21,6 +22,11 @@ export interface SiteConfig {
 const isCpanel =
   process.env.BUILD_TARGET === "cpanel" ||
   process.env.NEXT_PUBLIC_BUILD_TARGET === "cpanel";
+
+const buildTime =
+  process.env.NEXT_PUBLIC_BUILD_TIME ||
+  process.env.BUILD_TIME ||
+  "202610291700";
 
 export const siteConfig: SiteConfig = {
   name: "Curtains Direct & Blinds",
@@ -55,6 +61,7 @@ export const siteConfig: SiteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL ||
     (isCpanel ? "https://www.curtainsdirect.com.au/web" : "https://web.curtainsdirectblinds.com.au"),
   basePath: isCpanel ? "/web" : "",
+  version: buildTime,
   googleReviewsRating: 5.0,
   googleReviewsCount: "100+",
   yearsExperience: "30+",
@@ -66,5 +73,7 @@ export const siteConfig: SiteConfig = {
 
 export const assetUrl = (path: string): string => {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return siteConfig.basePath ? `${siteConfig.basePath}${cleanPath}` : cleanPath;
+  const base = siteConfig.basePath ? `${siteConfig.basePath}${cleanPath}` : cleanPath;
+  const separator = base.includes("?") ? "&" : "?";
+  return `${base}${separator}v=${buildTime}`;
 };

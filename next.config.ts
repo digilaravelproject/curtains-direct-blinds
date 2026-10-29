@@ -5,6 +5,9 @@ const isCpanel =
   process.env.NEXT_PUBLIC_BUILD_TARGET === "cpanel";
 
 const nextConfig: NextConfig = {
+  generateBuildId: async () => {
+    return `build-${Date.now()}`;
+  },
   ...(isCpanel
     ? {
         output: "export",

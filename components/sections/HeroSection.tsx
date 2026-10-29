@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
       {/* Desktop Background Image: Wide cinematic view with soft gradient */}
       <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
-          src={`${assetUrl("/images/hero-curtains-view.jpg")}?v=20261029`}
+          src={assetUrl("/images/hero-curtains-view.jpg")}
           alt="Modern window framed by custom curtains with scenic garden and ocean view"
           fill
           loading="lazy"
@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
             {/* Mobile Visual Showcase of the Hero Image (Properly framed 16:10 on mobile, hidden on desktop) */}
             <div className="lg:hidden relative w-full aspect-16/10 rounded-2xl overflow-hidden shadow-md border border-pink-200/70 bg-gray-100 my-2">
               <Image
-                src={`${assetUrl("/images/hero-curtains-view.jpg")}?v=20261029`}
+                src={assetUrl("/images/hero-curtains-view.jpg")}
                 alt="Custom made-to-measure curtains framing window with ocean view"
                 fill
                 priority

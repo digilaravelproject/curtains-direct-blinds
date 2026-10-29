@@ -1,6 +1,7 @@
 const { execSync } = require("child_process");
 
-console.log("⚡ Building for cPanel (subfolder /web)...");
+const buildTimestamp = Date.now().toString();
+console.log(`⚡ Building for cPanel (subfolder /web) [Build Version: ${buildTimestamp}]...`);
 
 execSync("npx next build --webpack", {
   stdio: "inherit",
@@ -8,6 +9,7 @@ execSync("npx next build --webpack", {
     ...process.env,
     BUILD_TARGET: "cpanel",
     NEXT_PUBLIC_BUILD_TARGET: "cpanel",
+    NEXT_PUBLIC_BUILD_TIME: buildTimestamp,
   },
 });
 

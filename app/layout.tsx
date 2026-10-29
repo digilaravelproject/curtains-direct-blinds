@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.basePath}/images/hero-curtains-view.jpg`,
+        url: `${siteConfig.basePath}/images/hero-curtains-view.jpg?v=${siteConfig.version}`,
         width: 1200,
         height: 630,
         alt: "Curtains Direct & Blinds Melbourne Living Room Installation",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     title: "Curtains Direct & Blinds | Custom Curtains & Blinds Melbourne",
     description:
       "Custom curtains, roller blinds & motorised blinds in Melbourne. 30+ years experience, 5.0★ rating. Free in-home consultation & measuring.",
-    images: [`${siteConfig.basePath}/images/hero-curtains-view.jpg`],
+    images: [`${siteConfig.basePath}/images/hero-curtains-view.jpg?v=${siteConfig.version}`],
   },
   robots: {
     index: true,
