@@ -42,7 +42,7 @@ export const HeroSection: React.FC = () => {
             <div className="lg:hidden relative w-full aspect-16/10 rounded-2xl overflow-hidden shadow-md border border-pink-200/70 bg-gray-100 my-2">
               <Image
                 src={assetUrl("/images/hero-curtains-view.jpg")}
-                alt="Custom made-to-measure curtains framing window with ocean view"
+                alt="Custom curtains framing window with ocean view"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -61,7 +61,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Subheading */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Custom curtains, roller blinds and motorised blinds, made to measure and professionally installed across Melbourne.
+              Custom curtains, roller blinds and motorised blinds, custom crafted and professionally installed across Melbourne.
             </p>
 
             {/* 3 Key Checkmarks */}

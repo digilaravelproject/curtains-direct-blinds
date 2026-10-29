@@ -26,7 +26,7 @@ const isCpanel =
 const buildTime =
   process.env.NEXT_PUBLIC_BUILD_TIME ||
   process.env.BUILD_TIME ||
-  "202610291700";
+  "202610291705";
 
 export const siteConfig: SiteConfig = {
   name: "Curtains Direct & Blinds",
@@ -74,6 +74,9 @@ export const siteConfig: SiteConfig = {
 export const assetUrl = (path: string): string => {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   const base = siteConfig.basePath ? `${siteConfig.basePath}${cleanPath}` : cleanPath;
-  const separator = base.includes("?") ? "&" : "?";
-  return `${base}${separator}v=${buildTime}`;
+  if (isCpanel) {
+    const separator = base.includes("?") ? "&" : "?";
+    return `${base}${separator}v=${buildTime}`;
+  }
+  return base;
 };

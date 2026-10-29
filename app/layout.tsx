@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Premium custom made-to-measure curtains, roller blinds, plantation shutters & motorised blinds across Melbourne. 30+ years experience, 5.0★ rating. Free in-home measure & quote!",
+    "Premium custom curtains, roller blinds, plantation shutters & motorised blinds across Melbourne. 30+ years experience, 5.0★ rating. Free in-home measure & quote!",
   keywords: [
     "curtains Melbourne",
     "blinds Melbourne",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "Berwick Curtain Nook",
     "window coverings Melbourne",
     "in home curtain consultation Melbourne",
-    "made to measure curtains Victoria",
+    "custom curtains Victoria",
     "commercial window furnishings Melbourne",
   ],
   metadataBase: new URL(siteConfig.domain),
@@ -134,7 +134,7 @@ export default function RootLayout({
         "name": siteConfig.name,
         "alternateName": "Berwick Curtain Nook",
         "description":
-          "Melbourne's trusted specialists in custom made-to-measure curtains, roller blinds, plantation shutters, and motorised blinds. Over 30 years of local manufacturing and installation excellence.",
+          "Melbourne's trusted specialists in custom curtains, roller blinds, plantation shutters, and motorised blinds. Over 30 years of local manufacturing and installation excellence.",
         "url": siteConfig.domain,
         "telephone": siteConfig.phoneRaw,
         "email": siteConfig.email,
@@ -182,7 +182,7 @@ export default function RootLayout({
               "itemOffered": {
                 "@type": "Service",
                 "name": "Custom Curtains (Sheer, S-Fold, Blockout & Wave Fold)",
-                "description": "Custom made-to-measure curtains with premium fabrics, thermal insulation, and custom curtain tracks.",
+                "description": "Custom curtains with premium fabrics, thermal insulation, and custom curtain tracks.",
               },
             },
             {

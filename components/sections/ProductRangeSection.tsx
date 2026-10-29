@@ -75,7 +75,7 @@ export const ProductRangeSection: React.FC = () => {
             Custom Curtains &amp; Blinds in Melbourne
           </h2>
           <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
-            Explore our popular window covering solutions, all made to measure for your home.
+            Explore our popular window covering solutions, custom tailored for your home.
           </p>
         </div>
 

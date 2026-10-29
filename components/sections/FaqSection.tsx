@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "How long does fabrication and installation take?",
     answer:
-      "Because our products are custom-made to measure, typical turnaround is 2 to 3 weeks from order confirmation, followed by prompt, clean professional installation by our team.",
+      "Because our products are custom-crafted to your window specifications, typical turnaround is 2 to 3 weeks from order confirmation, followed by prompt, clean professional installation by our team.",
   },
   {
     question: "Which areas do you service in Melbourne?",

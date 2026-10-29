@@ -41,10 +41,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", variant = "dark" }) 
             variant === "light" ? "text-pink-300" : "text-[#EB4D98]"
           }`}
         >
-          &amp; Blinds{" "}
-          <span className="hidden sm:inline text-gray-400 font-medium text-[10px] tracking-normal uppercase ml-1">
-            • Made-to-Measure
-          </span>
+          &amp; Blinds
         </span>
       </div>
     </Link>

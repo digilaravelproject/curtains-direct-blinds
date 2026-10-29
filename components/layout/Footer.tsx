@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>
           <p>
-            Custom made-to-measure curtains, roller blinds, and motorised window solutions across Melbourne.
+            Custom curtains, roller blinds, and motorised window solutions across Melbourne.
           </p>
         </div>
       </div>

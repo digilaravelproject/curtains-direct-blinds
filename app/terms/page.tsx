@@ -41,7 +41,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-bold text-gray-900">2. Custom Made-to-Measure Products</h2>
+            <h2 className="text-xl font-bold text-gray-900">2. Custom Window Products</h2>
             <p>
               All curtains, roller blinds, and motorised blinds are custom manufactured to the agreed specifications of each customer. Production commences following final measurement sign-off and deposit receipt.
             </p>

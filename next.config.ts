@@ -8,14 +8,23 @@ const nextConfig: NextConfig = {
   generateBuildId: async () => {
     return `build-${Date.now()}`;
   },
+  images: {
+    localPatterns: [
+      {
+        pathname: "/**",
+      },
+    ],
+    ...(isCpanel
+      ? {
+          unoptimized: true,
+        }
+      : {}),
+  },
   ...(isCpanel
     ? {
         output: "export",
         basePath: "/web",
         trailingSlash: true,
-        images: {
-          unoptimized: true,
-        },
       }
     : {}),
 };

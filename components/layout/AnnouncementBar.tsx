@@ -25,7 +25,7 @@ export const AnnouncementBar: React.FC = () => {
 
           <div className="hidden sm:flex items-center gap-1.5 hover:text-gray-900 transition-colors whitespace-nowrap">
             <Ruler className="w-3.5 h-3.5 text-[#EB4D98] shrink-0" />
-            <span>Made to Measure</span>
+            <span>Custom Designed</span>
           </div>
 
           <span className="hidden md:inline text-pink-300 text-[10px]">•</span>

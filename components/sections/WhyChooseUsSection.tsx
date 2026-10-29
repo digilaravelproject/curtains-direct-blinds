@@ -14,8 +14,8 @@ const reasons = [
   },
   {
     icon: Ruler,
-    title: "Made-to-Measure Solutions",
-    description: "Custom designed and precision-measured for your windows, architecture, and lifestyle.",
+    title: "Custom Designed Solutions",
+    description: "Custom designed and precision-crafted for your windows, architecture, and lifestyle.",
   },
   {
     icon: Wrench,
