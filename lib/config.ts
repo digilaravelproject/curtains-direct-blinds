@@ -12,6 +12,10 @@ export interface SiteConfig {
   googleReviewsRating: number;
   googleReviewsCount: string;
   yearsExperience: string;
+  social: {
+    instagram: string;
+    facebook: string;
+  };
 }
 
 const isCpanel =
@@ -54,6 +58,10 @@ export const siteConfig: SiteConfig = {
   googleReviewsRating: 5.0,
   googleReviewsCount: "100+",
   yearsExperience: "30+",
+  social: {
+    instagram: "https://www.instagram.com/curtainsdirectandblinds/",
+    facebook: "https://www.facebook.com/profile.php?id=100063493943769",
+  },
 };
 
 export const assetUrl = (path: string): string => {
